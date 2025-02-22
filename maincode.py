@@ -493,7 +493,7 @@ while True:
               else:
                  break
               
-             os.rename(rnfoldername_c, rnfoldername_n)
+             os.rename(rnfull_path_c, rnfull_path_n0)
              time.sleep(0.6)
              print()
              print("Renamed folder.")
