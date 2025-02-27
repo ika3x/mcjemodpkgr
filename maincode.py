@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 import subprocess
 import sys
+import datetime
 
 
 appdata_path = os.path.expandvars(r"%APPDATA%")
@@ -19,19 +20,19 @@ while True:
           break
 
 time.sleep(0.6)
-print("Welcome to mcjeModpkgr[Beta-v0.8c] by ika3")
+print("Welcome to mcjeModpkgr[Beta-v0.9a] by ika3")
 print()
 time.sleep(0.3)
 print("You can Create new launch-config or Append mods/shaderpacks to current launch-config")
 time.sleep(0.4)
-print("or Check the lists of things or Get folder-path or Rename folder or Delete folder.")
+print("or Check the lists of things or Get folder-path or Rename folder or Get files from packaged folder or Delete folder.")
 time.sleep(1.1)
 print()
 
 
 while True:
     print("You can select option from the following lists. Please select one option required.")
-    in1 = input("Create[C] Append[A] Lists[L] Delete[D] Getpath[GP] Rename-folder[RN] : ").strip().lower()
+    in1 = input("Create[C] Append[A] Lists[L] Delete[D] Getpath[GP] Rename-folder[RN] Getfile[GF] : ").strip().lower()
     time.sleep(0.4)
 
     if in1 == 'c':
@@ -511,6 +512,40 @@ while True:
              print("You can close this window.")
              time.sleep(30)
              sys.exit()
+
+
+          elif in1 == 'gf':
+             print()
+             while True:
+                time.sleep(0.5)
+                gffoldername = input("[Getfile] Enter name of the folder containing the file you want to retrieve : ").strip().lower()
+                print()
+                gffull_path = os.path.join(mainfolder_path, gffoldername)
+                if os.path.isdir(gffull_path):
+                   while True:
+                      gf_wf = input("[Getfile] All files[A] or Only mods[M] or Only shaderpacks[S] : ").strip().lower()
+                      print()
+                      gf_timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+                      gf_2_dirname = (f"{gffoldername}-{gf_wf}_archive_{gf_timenow}")
+                      gf_2_dir = os.path.join("./fls", gf_2_dirname)
+                      if gf_wf == 'a':
+                        shutil.copytree(gffull_path, gf_2_dir, dirs_exist_ok=True)
+
+                      elif gf_wf == 'm':
+                         gffull_path_m = os.path.join(gffull_path, "mods")
+                         shutil.copytree(gffull_path_m, gf_2_dir, dirs_exist_ok=True)
+
+                      elif gf_wf == 's':
+                         gffull_path_s = os.path.join(gffull_path, "shaderpacks")
+                         shutil.copytree(gffull_path_s, gf_2_dir, dirs_exist_ok=True)
+                         
+                        
+                         
+                   
+                else:
+                   print("[Getfile] Wrong input or the folder does not exist. Try again.")
+                   print()
+             
 
 
           else:
