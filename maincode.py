@@ -153,9 +153,9 @@ while True:
 
     elif in1 == 'a':
        while True:
-          in2 = input("Append mods[AM] or Append shaderpacks[AS]: ").strip().lower()
+          in2 = input("Append mods[AM] or Append shaderpacks[AS] : ").strip().lower()
     
-          if in1 == 'am':
+          if in2 == 'am':
             while True:   
              print()
              time.sleep(0.2)
@@ -227,7 +227,7 @@ while True:
                 print("[Append] Wrong input or the Folder does not exist. Try again.")   
 
 
-          elif in1 == 'as':
+          elif in2 == 'as':
             while True:   
              print()
              time.sleep(0.2)
@@ -298,6 +298,11 @@ while True:
 
              else:
                 print("[Append] Wrong input or the Folder does not exist. Try again.") 
+
+          else:
+             time.sleep(0.35)
+             print("[Append] Wrong input! Try again.") 
+             print()
 
     elif in1 == 'l':
         print()
@@ -527,21 +532,35 @@ while True:
                       print()
                       gf_timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
                       gf_2_dirname = (f"{gffoldername}-{gf_wf}_archive_{gf_timenow}")
-                      gf_2_dir = os.path.join("./fls", gf_2_dirname)
+                      gf_2_dir = os.path.join("./fls", "archive", gf_2_dirname)
                       if gf_wf == 'a':
-                        shutil.copytree(gffull_path, gf_2_dir, dirs_exist_ok=True)
+                         shutil.copytree(gffull_path, gf_2_dir, dirs_exist_ok=True)
+                         break
 
                       elif gf_wf == 'm':
                          gffull_path_m = os.path.join(gffull_path, "mods")
                          shutil.copytree(gffull_path_m, gf_2_dir, dirs_exist_ok=True)
+                         break
 
                       elif gf_wf == 's':
                          gffull_path_s = os.path.join(gffull_path, "shaderpacks")
                          shutil.copytree(gffull_path_s, gf_2_dir, dirs_exist_ok=True)
-                         
-                        
-                         
-                   
+                         break
+
+                      else:
+                         print("[GetFile] Wrong input! Try again.")
+
+                   print()
+                   time.sleep(1.5)
+                   print(f"Successfully copied files in {gf_2_dirname} in archive folder.")
+                   time.sleep(1.2)
+                   print()
+                   print()
+                   print("You can close this window.")
+                   time.sleep(30)
+                   sys.exit()
+
+
                 else:
                    print("[Getfile] Wrong input or the folder does not exist. Try again.")
                    print()
