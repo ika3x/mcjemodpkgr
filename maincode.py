@@ -7,6 +7,32 @@ import sys
 import datetime
 
 
+class Color:
+	BLACK          = '\033[30m'
+	RED            = '\033[31m'
+	GREEN          = '\033[32m'
+	YELLOW         = '\033[33m'
+	BLUE           = '\033[34m'
+	MAGENTA        = '\033[35m'
+	CYAN           = '\033[36m'
+	WHITE          = '\033[37m'
+	COLOR_DEFAULT  = '\033[39m'
+	BOLD           = '\033[1m'
+	UNDERLINE      = '\033[4m'
+	INVISIBLE      = '\033[08m'
+	REVERCE        = '\033[07m'
+	BG_BLACK       = '\033[40m'
+	BG_RED         = '\033[41m'
+	BG_GREEN       = '\033[42m'
+	BG_YELLOW      = '\033[43m'
+	BG_BLUE        = '\033[44m'
+	BG_MAGENTA     = '\033[45m'
+	BG_CYAN        = '\033[46m'
+	BG_WHITE       = '\033[47m'
+	BG_DEFAULT     = '\033[49m'
+	RESET          = '\033[0m'
+
+
 appdata_path = os.path.expandvars(r"%APPDATA%")
 mainfolder_path = os.path.join(appdata_path, "mcjemodpkgrfiles", "mu")
 allorom = coworag = 'fake'
@@ -393,8 +419,8 @@ while True:
         while True:
           time.sleep(0.5)
           print()
-          delgg = input("[Delete] Enter folder name : ").strip().lower()
-          delfolder_path = os.path.join(mainfolder_path, delgg)
+          delfolder_name = input("[Delete] Enter folder name : ").strip().lower()
+          delfolder_path = os.path.join(mainfolder_path, delfolder_name)
 
           if os.path.isdir(delfolder_path):
              while True:
@@ -410,7 +436,7 @@ while True:
             
              if deltype_0 == 'f':
                   time.sleep(1.2)
-                  delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delgg} folder, Delete[DELETE] or Cancel[C]? : "+'\033[0m').strip().lower()
+                  delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delfolder_name} folder, Delete[DELETE] or Cancel[C]? : "+'\033[0m').strip().lower()
                   if delrusure == 'delete':
                      print()
                      shutil.rmtree(delfolder_path)
@@ -429,6 +455,26 @@ while True:
 
              elif deltype_0 == 'm':
                 time.sleep(0.7)
+                delfolder_mods_path = os.path.join(delfolder_path, "mods")
+                print()
+                print()
+                print(f"Here's the list of mods in {delfolder_name}.")
+                print()
+                dir_del_mods_1 = [
+                f for f in os.listdir(delfolder_mods_path) if os.path.isdir(os.path.join(delfolder_mods_path, f))
+                ]
+                for dir_del_mods_2 in dir_del_mods_1:
+                   print(f"\033[38;2;245;130;25m{dir_del_mods_2}:\033[0m");
+                print()
+                print("Enter that a mod name to delete the mod.")
+                print("When the removal is complete, enter [exit](only lowercase) to exit.")
+                print("To see the list of mods, enter [modlist](only lowercase).")
+                print()
+                print()
+                while True:
+                   del_mods_name = input("Enter a mod name or command. : ").strip()
+                   
+          
 
           else:
              time.sleep(0.2)
