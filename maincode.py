@@ -26,7 +26,7 @@ time.sleep(0.3)
 print("You can Create new launch-config or Append mods/shaderpacks to current launch-config")
 time.sleep(0.4)
 print("or Check the lists of things or Get folder-path or Rename folder or Get files from packaged folder or Delete folder.")
-time.sleep(1.1)
+time.sleep(0.8)
 print()
 
 
@@ -398,14 +398,14 @@ while True:
           if os.path.isdir(delfolder_path):
              while True:
               time.sleep(1.2)
-              delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delgg} folder, Yes[Y] or No[N]? : "+'\033[0m').strip().lower()
-              if delrusure == 'y':
+              delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delgg} folder, Delete[DELETE] or Cancel[C]? : "+'\033[0m').strip().lower()
+              if delrusure == 'delete':
                print()
                shutil.rmtree(delfolder_path)
                time.sleep(0.6)
                print("[Delete] Successfully deleted.")
                break
-              elif delrusure == 'n':
+              elif delrusure == 'c':
                print()
                time.sleep(0.2)
                print("[Delete] Cancelled!")
