@@ -19,13 +19,14 @@ while True:
           os.makedirs(mainfolder_path)
           break
 
+
 time.sleep(0.6)
 print("Welcome to mcjeModpkgr[Beta-v0.9a] by ika3")
 print()
 time.sleep(0.3)
 print("You can Create new launch-config or Append mods/shaderpacks to current launch-config")
 time.sleep(0.4)
-print("or Check the lists of things or Get folder-path or Rename folder or Get files from packaged folder or Delete folder.")
+print("or Check the lists of things or Delete folder/files or Get folder-path or Rename folder or Get files from packaged folder .")
 time.sleep(0.8)
 print()
 
@@ -72,7 +73,7 @@ while True:
         while True:
          print()
          time.sleep(0.2)
-         allorom = input("[Create] Shaderpacks[S] or Only mods[M] or All files(for modpacks)[A] ? : ").strip().lower()
+         allorom = input("[Create] Only shaderpacks[S] or Only mods[M] or All files(for modpacks)[A] ? : ").strip().lower()
 
          if allorom == 'm':
              modpath = os.path.join(fullc_path, "mods") 
@@ -397,23 +398,37 @@ while True:
 
           if os.path.isdir(delfolder_path):
              while True:
-              time.sleep(1.2)
-              delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delgg} folder, Delete[DELETE] or Cancel[C]? : "+'\033[0m').strip().lower()
-              if delrusure == 'delete':
-               print()
-               shutil.rmtree(delfolder_path)
-               time.sleep(0.6)
-               print("[Delete] Successfully deleted.")
-               break
-              elif delrusure == 'c':
-               print()
-               time.sleep(0.2)
-               print("[Delete] Cancelled!")
-               break
-              else:
-               time.sleep(0.3)
-               print("[Delete] Wrong input! Try again.")
-               print()
+                time.sleep(0.4)
+                deltype_0 = input("[Delete] Delete folder[F] or Delete mods[M] or Delete shaderpacks[S] : ").strip().lower()
+                if deltype_0 == 'f' or 'm' or 's':
+                   break
+                  
+                else: 
+                   time.sleep(0.4)
+                   print("[Delete] Wrong input! Try again.")
+                   continue
+            
+             if deltype_0 == 'f':
+                  time.sleep(1.2)
+                  delrusure = input('\033[31m'+f"[Delete] Are you sure to delete {delgg} folder, Delete[DELETE] or Cancel[C]? : "+'\033[0m').strip().lower()
+                  if delrusure == 'delete':
+                     print()
+                     shutil.rmtree(delfolder_path)
+                     time.sleep(0.6)
+                     print("[Delete] Successfully deleted.")
+                     break
+                  elif delrusure == 'c':
+                     print()
+                     time.sleep(0.2)
+                     print("[Delete] Cancelled!")
+                     break
+                  else:
+                     time.sleep(0.3)
+                     print("[Delete] Wrong input! Try again.")
+                     print()
+
+             elif deltype_0 == 'm':
+                time.sleep(0.7)
 
           else:
              time.sleep(0.2)
@@ -550,7 +565,6 @@ while True:
                       else:
                          print("[GetFile] Wrong input! Try again.")
 
-                   print()
                    time.sleep(1.5)
                    print(f"Successfully copied files in {gf_2_dirname} in archive folder.")
                    time.sleep(1.2)
