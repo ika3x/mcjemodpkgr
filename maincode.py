@@ -464,17 +464,51 @@ while True:
                 f for f in os.listdir(delfolder_mods_path) if os.path.isdir(os.path.join(delfolder_mods_path, f))
                 ]
                 for dir_del_mods_2 in dir_del_mods_1:
-                   print(f"\033[38;2;245;130;25m{dir_del_mods_2}:\033[0m");
+                   print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
                 print()
                 print("Enter that a mod name to delete the mod.")
-                print("When the removal is complete, enter [exit](only lowercase) to exit.")
-                print("To see the list of mods, enter [modlist](only lowercase).")
+                print("When the removal is complete, enter [EXIT] to exit.")
+                print("To see the list of mods, enter [MODSLIST].")
                 print()
                 print()
                 while True:
                    del_mods_name = input("Enter a mod name or command. : ").strip()
+                   time.sleep(0.4)
+
+                   if del_mods_name.lower() == 'exit':
+                      print("Thank you for using my script!")
+                      time.sleep(2)
+                      print()
+                      print("You can close this window.")
+                      time.sleep(30)
+                      sys.exit()
                    
-          
+                   elif del_mods_name.lower() == 'modslist':
+                      print()
+                      print()
+                      print(f"Here's the current list of mods in {delfolder_name}.")
+                      print()
+                      dir_del_mods_1 = [
+                      f for f in os.listdir(delfolder_mods_path) if os.path.isdir(os.path.join(delfolder_mods_path, f))
+                      ]
+                      for dir_del_mods_2 in dir_del_mods_1:
+                         print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
+                      print()
+                      print()
+                      continue
+                   
+                   else:
+                      del_mods_file_full_path = os.path.join(delfolder_mods_path, del_mods_name)
+                      if os.path.isfile(del_mods_file_full_path):
+                         os.remove(del_mods_file_full_path)
+                         print("Removed "+f"\033[38;2;255;198;33m{del_mods_name}\033[0m"+" successfully.");
+                         print()
+                         continue
+                      
+                      else:
+                         print("The file not found. Try again.")
+                         print()
+                         continue
 
           else:
              time.sleep(0.2)
