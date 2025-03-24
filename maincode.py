@@ -38,12 +38,12 @@ mainfolder_path = os.path.join(appdata_path, "mcjemodpkgrfiles", "mu")
 allorom = coworag = 'fake'
 
 while True:
-   if os.path.isdir(mainfolder_path):
-          break
+ if os.path.isdir(mainfolder_path):
+    break
    
-   else:
-          os.makedirs(mainfolder_path)
-          break
+ else:
+    os.makedirs(mainfolder_path)
+    break
 
 
 time.sleep(0.6)
@@ -149,18 +149,18 @@ while True:
         crspcheck = os.path.join(fullc_path, "shaderpacks")
 
         if os.path.isdir(crspcheck):
-         print("Here is your folder path. [Already copied to clipboard]")
-         print (f"{fullc_path}")
-         time.sleep(0.2)
-         print()
-         subprocess.run("clip", input=fullc_path, text=True)
-         print("Have fun to play modded MCJE and Thank you for using my script!")
-         time.sleep(1.2)
-         print()
-         print()
-         print("You can close this window.")
-         time.sleep(30)
-         sys.exit()
+          print("Here is your folder path. [Already copied to clipboard]")
+          print (f"{fullc_path}")
+          time.sleep(0.2)
+          print()
+          subprocess.run("clip", input=fullc_path, text=True)
+          print("Have fun to play modded MCJE and Thank you for using my script!")
+          time.sleep(1.2)
+          print()
+          print()
+          print("You can close this window.")
+          time.sleep(30)
+          sys.exit()
 
         else:
          os.makedirs(crspcheck, exist_ok=True)
@@ -331,6 +331,7 @@ while True:
              print("[Append] Wrong input! Try again.") 
              print()
 
+
     elif in1 == 'l':
         print()
         
@@ -454,61 +455,178 @@ while True:
                      print()
 
              elif deltype_0 == 'm':
-                time.sleep(0.7)
                 delfolder_mods_path = os.path.join(delfolder_path, "mods")
-                print()
-                print()
-                print(f"Here's the list of mods in {delfolder_name}.")
-                print()
-                dir_del_mods_1 = [
-                f for f in os.listdir(delfolder_mods_path) if os.path.isdir(os.path.join(delfolder_mods_path, f))
-                ]
-                for dir_del_mods_2 in dir_del_mods_1:
-                   print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
-                print()
-                print("Enter that a mod name to delete the mod.")
-                print("When the removal is complete, enter [EXIT] to exit.")
-                print("To see the list of mods, enter [MODSLIST].")
-                print()
-                print()
-                while True:
-                   del_mods_name = input("Enter a mod name or command. : ").strip()
+                if len(os.listdir(delfolder_mods_path)) >= 1 and os.path.isdir(delfolder_mods_path):
+                   time.sleep(0.7)
+                   print()
+                   print()
+                   print(f"[Delete] Here's the list of mods in {delfolder_name}.")
+                   time.sleep(0.15)
+                   print()
+                   dir_del_mods_1 = [
+                   f for f in os.listdir(delfolder_mods_path) if os.path.isfile(os.path.join(delfolder_mods_path, f))
+                   ]
+                   for dir_del_mods_2 in dir_del_mods_1:
+                      print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
+                   print()
+                   print()
                    time.sleep(0.4)
+                   print("[Delete] Enter that a mod name to delete the mod.")
+                   print()
+                   time.sleep(0.2)
+                   print("[Delete] When the removal is complete, enter [EXIT] to exit.")
+                   time.sleep(0.2)
+                   print("[Delete] To see the list of mods, enter [MODSLIST].")
+                   time.sleep(1)
+                   print()
+                   while True:
+                      del_mods_name = input("Input : ").strip()
+                      time.sleep(0.4)
 
-                   if del_mods_name.lower() == 'exit':
-                      print("Thank you for using my script!")
-                      time.sleep(2)
-                      print()
-                      print("You can close this window.")
-                      time.sleep(30)
-                      sys.exit()
-                   
-                   elif del_mods_name.lower() == 'modslist':
-                      print()
-                      print()
-                      print(f"Here's the current list of mods in {delfolder_name}.")
-                      print()
-                      dir_del_mods_1 = [
-                      f for f in os.listdir(delfolder_mods_path) if os.path.isdir(os.path.join(delfolder_mods_path, f))
-                      ]
-                      for dir_del_mods_2 in dir_del_mods_1:
-                         print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
-                      print()
-                      print()
-                      continue
-                   
-                   else:
-                      del_mods_file_full_path = os.path.join(delfolder_mods_path, del_mods_name)
-                      if os.path.isfile(del_mods_file_full_path):
-                         os.remove(del_mods_file_full_path)
-                         print("Removed "+f"\033[38;2;255;198;33m{del_mods_name}\033[0m"+" successfully.");
+                      if len(del_mods_name) == 0:
+                         time.sleep(0.15)
+                         continue
+
+                      elif del_mods_name.lower() == 'exit':
                          print()
+                         print()
+                         time.sleep(0.9)
+                         print("Thank you for using my script!")
+                         time.sleep(2)
+                         print()
+                         print("You can close this window.")
+                         time.sleep(30)
+                         sys.exit()
+                     
+                      elif del_mods_name.lower() == 'modslist':
+                         print()
+                         print()
+                         print(f"[Delete] Here's the current list of mods in {delfolder_name}.")
+                         print()
+                         dir_del_mods_1 = [
+                         f for f in os.listdir(delfolder_mods_path) if os.path.isfile(os.path.join(delfolder_mods_path, f))
+                         ]
+                         for dir_del_mods_2 in dir_del_mods_1:
+                            print(f"\033[38;2;245;130;25m{dir_del_mods_2}\033[0m");
+                         print()
+                         print()
+                         time.sleep(0.6)
+                         continue
+                     
+                      else:
+                         del_mods_file_full_path = os.path.join(delfolder_mods_path, del_mods_name)
+                         time.sleep(0.4)
+                         if os.path.isfile(del_mods_file_full_path):
+                            os.remove(del_mods_file_full_path)
+                            print("[Delete] Removed "+f"\033[38;2;255;198;33m{del_mods_name}\033[0m"+" successfully.");
+                            print()
+                            time.sleep(0.5)
+                            continue
+                        
+                         else:
+                            print("[Delete] The file not found. Try again.")
+                            print()
+                            time.sleep(0.6)
+                            continue
+                else:
+                   print()
+                   print(f"[Delete] ERROR: You don't have any mods in {delfolder_name}.")
+                   print()
+                   time.sleep(0.5)
+                   print("The window is going to close")
+                   time.sleep(3)
+                   sys.exit()
+
+                      
+             elif deltype_0 == 's':
+                time.sleep(0.3)
+                delfolder_sps_path = os.path.join(delfolder_path, "shaderpacks")
+                if len(os.listdir(delfolder_sps_path)) >= 1:
+                   print()
+                   print()
+                   print(f"[Delete] Here's the list of shaderpacks in {delfolder_name}.")
+                   time.sleep(0.15)
+                   print()
+                   dir_del_sps_1 = [
+                   f for f in os.listdir(delfolder_sps_path) if os.path.isdir(delfolder_sps_path)
+                   ]
+                   for dir_del_sps_2 in dir_del_sps_1:
+                      print(f"\033[38;2;175;250;175m{dir_del_sps_2}\033[0m");
+                   time.sleep(0.3)
+                   print()
+                   print()
+                   print("Enter a name of shaderpack to remove that.")
+                   time.sleep(0.3)
+                   print("When the removal is complete, enter [EXIT] to exit.")
+                   time.sleep(0.4)
+                   print("To see the list of shaderpacks again, enter [SPSLIST].")
+                   time.sleep(0.35)
+                   print()
+                   print("Enter the name of the shaderpack you want to remove, or enter the command.")
+                   print()
+                   
+                   while True:
+                      time.sleep(0.5)
+                      del_sps_name = input("[Delete] Input : ").strip()
+                      if len(del_sps_name) == 0:
+                         time.sleep(0.15)
                          continue
                       
-                      else:
-                         print("The file not found. Try again.")
+                      elif del_sps_name.lower() == 'exit':
+                         print()
+                         print()
+                         time.sleep(0.9)
+                         print("Thank you for using my script!")
+                         time.sleep(2)
+                         print()
+                         print("You can close this window.")
+                         time.sleep(30)
+                         sys.exit()
+
+                      elif del_sps_name.lower() == 'spslist':
+                         print()
+                         print()
+                         time.sleep(0.45)
+                         print(f"[Delete] Here's the list of shaderpacks in {delfolder_name}.")
+                         time.sleep(0.15)
+                         print()
+                         dir_del_sps_1 = [
+                         f for f in os.listdir(delfolder_sps_path) if os.path.isdir(delfolder_sps_path)
+                         ]
+                         for dir_del_sps_2 in dir_del_sps_1:
+                            print(f"\033[38;2;144;238;144m{dir_del_sps_2}\033[0m");
+                         time.sleep(0.5)
+                         print()
                          print()
                          continue
+
+                      else:
+                         del_sps_file_full_path = os.path.join(delfolder_sps_path, del_sps_name)
+                         if os.path.isfile(del_sps_file_full_path):
+                            os.remove(del_sps_file_full_path)
+                            time.sleep(0.35)
+                            print("[Delete] Removed "+f"\033[38;2;161;230;192m{del_sps_file_full_path}\033[0m"+" successfully.");
+                            time.sleep(0.5)
+                            print()
+                            continue
+                        
+                         else:
+                            print("[Delete] The file not found. Try again.")
+                            time.sleep(0.6)
+                            print()
+                            continue
+                            
+
+                else:
+                   print(0.5)
+                   print(f"[Delete] You don't have any shaderpacks in {delfolder_name} folder.")
+                   print()
+                   time.sleep(0.5)
+                   print("The window is going to close.")
+                   time.sleep(3)
+                   sys.exit()
+
+
 
           else:
              time.sleep(0.2)
@@ -521,9 +639,10 @@ while True:
             
         print()
         time.sleep(0.5)
-        print("The window is going to close")
+        print("The window is going to close.")
         time.sleep(3)
         sys.exit()
+
 
     elif in1 == 'gp':
        while True:
