@@ -1,4 +1,3 @@
-<div align="center">
-<h1>mcjeModpkgr</h1>
-<br>
-</div>
+# mcjeModpkgr
+
+## A script for helping install mods to Minecraft Java Edition.
