@@ -21,7 +21,7 @@ https://github.com/ika3x/mcjemodpkgr/
 まず起動の前に、ファイルをflsフォルダーの中にすべて入れておいてください。  
 Modpackを入れる場合はmodsなどのフォルダーやファイルを直で入れる、mod/shaderpacksのみを追加、構成を作成の場合はjarやzip形式などのものをいれるだけです。
 複数のmodを同時に処理することはできますが、modとshaderpacksを同時に処理、などは不可能です。  
-それからは起動後、Create[C] Append[A] Lists[L] Delete[D] Getpath[GP] Rename-folder[RN] :  
+それからは起動後、Create[C] Append[A]... :  
 と表示されるので自分の行いたいことに合ったものを入力しエンター、そうするとまた入力要求が現れ、、というのを繰り返していくだけです。  
 一部オプションは最後の処理後、フォルダーのパスが表示されますが、これは自動でクリップボードにコピーされますのであとはMCLauncherに張り付けるだけです。
 構成でエラーが出た場合などはListsなども使用して原因を探ることもできます。
@@ -29,7 +29,8 @@ Modpackを入れる場合はmodsなどのフォルダーやファイルを直で
 
 
 3. patchnote
-   
+
+v0.9a Appendが使えない問題を修正、Getfileの追加   
 v0.8c readmeの中身を修正。  
 v0.8b 最初のリリース。Create Append Lists Delete Getpath Rename-folderに対応。
 
