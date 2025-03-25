@@ -1,4 +1,4 @@
-mcjeModpkgr v0.9aをダウンロードいただきありがとうございます。
+mcjeModpkgr v0.9bをダウンロードいただきありがとうございます。
 このソフトウェアの中身はマインクラフトJava版のmodやshader等の導入、削除などが簡単に行えるというものです。
 まずはここの内容をすべて読んでから使用してください。
 
@@ -30,6 +30,7 @@ Modpackを入れる場合はmodsなどのフォルダーやファイルを直で
 
 3. patchnote
 
+v0.9b Appendが使えない問題を修正(2)
 v0.9a Appendが使えない問題を修正、Getfileの追加   
 v0.8c readmeの中身を修正。  
 v0.8b 最初のリリース。Create Append Lists Delete Getpath Rename-folderに対応。
