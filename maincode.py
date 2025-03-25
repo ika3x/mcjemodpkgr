@@ -189,8 +189,8 @@ while True:
              apfile = input("[Append] Enter folder name :").strip().lower()
              time.sleep(0.4)
              print()
-             full_path_a = os.path.join(appdata_path, "mcjemodpkgrfiles", apfile)
-             full_path_a_m = os.path.join(appdata_path, "mcjemodpkgrfiles", apfile, "mods")
+             full_path_a = os.path.join(mainfolder_path, apfile)
+             full_path_a_m = os.path.join(mainfolder_path, apfile, "mods")
              if os.path.isdir(full_path_a):
               print("[Append] We only support to append only mods in this option.")
 
@@ -261,8 +261,8 @@ while True:
              apfile2 = input("[Append] Enter folder name :").strip().lower()
              time.sleep(0.4)
              print()
-             full_path_as = os.path.join(appdata_path, "mcjemodpkgrfiles", apfile2)
-             full_path_as_m = os.path.join(appdata_path, "mcjemodpkgrfiles", apfile2, "shaderpacks")
+             full_path_as = os.path.join(mainfolder_path, apfile2)
+             full_path_as_m = os.path.join(mainfolder_path, apfile2, "shaderpacks")
              if os.path.isdir(full_path_as):
                     # You found the easter egg!
               print("[Append] We only support to append only shaderpacks in this option.")
