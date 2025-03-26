@@ -47,7 +47,7 @@ while True:
 
 
 time.sleep(0.6)
-print("Welcome to mcjeModpkgr[Beta-v0.9a] by ika3")
+print("Welcome to mcjeModpkgr[Beta-v0.9b] by ika3")
 print()
 time.sleep(0.3)
 print("You can Create new launch-config or Append mods/shaderpacks to current launch-config")
