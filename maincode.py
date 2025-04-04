@@ -47,7 +47,7 @@ while True:
 
 
 time.sleep(0.6)
-print("Welcome to mcjeModpkgr[Beta-v0.9b] by ika3")
+print("Welcome to mcjeModpkgr[Beta-v0.9a] by ika3")
 print()
 time.sleep(0.3)
 print("You can Create new launch-config or Append mods/shaderpacks to current launch-config")
@@ -731,9 +731,11 @@ while True:
              print("You can close this window.")
              time.sleep(30)
              sys.exit()
+          else:
+             time.sleep(0.3)
+             print("[Rename] Wrong input or the Folder does not exist. Try again.")
 
-
-          elif in1 == 'gf':
+    elif in1 == 'gf':
              print()
              while True:
                 time.sleep(0.5)
@@ -775,14 +777,9 @@ while True:
 
 
                 else:
-                   print("[Getfile] Wrong input or the folder does not exist. Try again.")
-                   print()
-             
+                     print("[Getfile] Wrong input or the folder does not exist. Try again.")
+                     print()
 
-
-          else:
-             time.sleep(0.3)
-             print("[Rename] Wrong input or the Folder does not exist. Try again.")
 
 
     else:
